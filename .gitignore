@@ -1,0 +1,47 @@
+# Игнорировать бинарные файлы
+main
+main.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Игнорировать тестовые файлы
+*.test
+
+# Игнорировать output файлы
+*.out
+
+# Зависимости
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Логи
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env файлы
+.env
+.env.local
+/environment
+
+
+
+
+# Docker volumes (только для локальной разработки)
+# Данные MongoDB будут в Docker volume
+
+# Swagger документация генерируется автоматически
+# Раскомментируйте если не хотите коммитить docs
+# docs/
+
