@@ -1,0 +1,12 @@
+.venv/
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+
+# Env файлы
+.env
+.env.local

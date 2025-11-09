@@ -22,7 +22,7 @@ services:
 
   app:
     build:
-      context: ./crud-service
+      context: ./crud-py
       dockerfile: Dockerfile
     container_name: crud_app
     restart: always
