@@ -39,6 +39,15 @@ services:
       - crud_network
 
 
+  docs_service:
+    build:
+      context: ./docs-service
+      dockerfile: Dockerfile
+    container_name: crud_docs
+    restart: always
+    networks:
+      - crud_network
+
   nginx:
     build:
       context: ./nginx-service
@@ -53,8 +62,9 @@ services:
       - ./environment/shop.crt:/etc/nginx/shop.crt:ro
     depends_on:
       - app
+      - docs_service
     networks:
-        - crud_network
+      - crud_network
 
 volumes:
   mongodb_data:
