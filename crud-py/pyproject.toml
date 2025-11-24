@@ -10,4 +10,8 @@ dependencies = [
     "motor>=3.3.0",
     "pymongo>=4.0",
     "email-validator>=2.1.0",
+    "pylint>=4.0.3",
+    "flake8>=7.3.0",
+    "ruff>=0.14.6",
+    "locust>=2.42.5",
 ]

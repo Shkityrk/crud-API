@@ -66,6 +66,38 @@ services:
     networks:
       - crud_network
 
+  zap-baseline:
+    image: zaproxy/zap-stable:latest
+    container_name: crud_zap_baseline
+    depends_on:
+      app:
+        condition: service_started
+    networks:
+      - crud_network
+    profiles:
+      - zap
+    environment:
+      ZAP_TARGET: http://app:8080
+      ZAP_MAX_DURATION: "5"
+    volumes:
+      - ./security/zap:/zap/wrk
+      - ./crud-py/reports/dynamic/zap:/zap/reports
+    command:
+      - zap-baseline.py
+      - -t
+      - ${ZAP_TARGET:-http://app:8080}
+      - -c
+      - /zap/wrk/zap-baseline.conf
+      - -r
+      - /zap/reports/zap-baseline.html
+      - -J
+      - /zap/reports/zap-baseline.json
+      - -w
+      - /zap/reports/zap-warnings.md
+      - -m
+      - ${ZAP_MAX_DURATION:-5}
+      - -I
+
 volumes:
   mongodb_data:
 
